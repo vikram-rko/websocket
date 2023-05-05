@@ -30,4 +30,11 @@ io.on('connection', (socket) => {
         //socket.broadcast.emit('typing', data);
     });
 
+    socket.on('order', function(data){
+        // console.log(`Server received ${data} is typing`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('order', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
 });
