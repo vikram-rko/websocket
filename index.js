@@ -8,7 +8,7 @@ var server = app.listen(3000, function(){
 });
 
 // Socket setup
-var io = socket(server)(server, { cors: { origin: "*" } });
+var io = socket(server, { cors: { origin: "*" } });
 
 // Listen for new connection and print a message in console 
 io.on('connection', (socket) => {
