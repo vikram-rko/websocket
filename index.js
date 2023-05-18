@@ -23,15 +23,32 @@ io.on('connection', (socket) => {
     });
 
     // Listening for typing event
-    socket.on('typing', function(data){
+    socket.on('dna', function(data){
+        console.log(`Server received: dna`);
         // console.log(`Server received ${data} is typing`);
         // console.log('need to inform all the clients about this');
-        io.sockets.emit('typing', data);
+        io.sockets.emit('dna', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
+    socket.on('capsid', function(data){
+        console.log(`Server received: capsid`);
+        // console.log(`Server received ${data} is typing`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('capsid', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
+    socket.on('phelper', function(data){
+        console.log(`Server received: phelper`);
+        // console.log(`Server received ${data} is typing`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('phelper', data);
         //socket.broadcast.emit('typing', data);
     });
 
     socket.on('order', function(data){
-        // console.log(`Server received ${data} is typing`);
+        console.log(`Server received: order placed`);
         // console.log('need to inform all the clients about this');
         io.sockets.emit('order', data);
         //socket.broadcast.emit('typing', data);
