@@ -54,4 +54,25 @@ io.on('connection', (socket) => {
         //socket.broadcast.emit('typing', data);
     });
 
+    socket.on('labGroupCreated', function(data){
+        console.log(`Server received: lab Group Created`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('labGroupCreated', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
+    socket.on('labGroupUserApproval', function(data){
+        console.log(`Server received: labGroupUserApproval`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('labGroupUserApproval', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
+    socket.on('labGroupAdminApproval', function(data){
+        console.log(`Server received: labGroupAdminApproval`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('labGroupAdminApproval', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
 });
