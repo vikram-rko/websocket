@@ -76,16 +76,16 @@ io.on('connection', (socket) => {
     });
 
     socket.on('srmkorder', function(data){
-        console.log(`Server received: order placed`);
+        console.log(`Server received: srmk order placed`);
         // console.log('need to inform all the clients about this');
-        io.sockets.emit('order', data);
+        io.sockets.emit('srmkorder', data);
         //socket.broadcast.emit('typing', data);
     });
 
     socket.on('srmkcustomer', function(data){
-        console.log(`Server received: customer`);
+        console.log(`Server received: srmkcustomer`);
         // console.log('need to inform all the clients about this');
-        io.sockets.emit('customer', data);
+        io.sockets.emit('srmkcustomer', data);
         //socket.broadcast.emit('typing', data);
     });
 });
