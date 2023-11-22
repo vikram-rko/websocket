@@ -75,4 +75,17 @@ io.on('connection', (socket) => {
         //socket.broadcast.emit('typing', data);
     });
 
+    socket.on('srmkorder', function(data){
+        console.log(`Server received: order placed`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('order', data);
+        //socket.broadcast.emit('typing', data);
+    });
+
+    socket.on('srmkcustomer', function(data){
+        console.log(`Server received: customer`);
+        // console.log('need to inform all the clients about this');
+        io.sockets.emit('customer', data);
+        //socket.broadcast.emit('typing', data);
+    });
 });
